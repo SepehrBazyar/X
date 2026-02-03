@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>X | {% block title %}{% endblock %}</title>
+    </head>
+    <body>
+        {% include "components/navbar.html" %}
+        {% block content %}{% endblock %}
+    </body>
+</html>
