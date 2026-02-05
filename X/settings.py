@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 LOCAL_APPS = (
+    "core.apps.CoreConfig",
     "contents.apps.ContentsConfig",
 )
 

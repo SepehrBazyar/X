@@ -3,4 +3,6 @@ from contents.models.post import (
     Post,
     PostPhoto,
     Tag,
+    RecentPost,
+    QuotePost,
 )
