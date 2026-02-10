@@ -33,6 +33,11 @@ class Post(BaseModel):
         default=PostStates.DRAFT,
     )
 
+    @property
+    def tag_names(self):
+        names = [tag.name for tag in self.tags.all()]
+        return " - ".join(names)
+
     def __str__(self):
         return f"{self.id}) {self.title}"
 
