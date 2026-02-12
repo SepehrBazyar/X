@@ -24,6 +24,21 @@ class TagAdmin(admin.ModelAdmin):
     )
 
 
+class CommentStackedInline(admin.StackedInline):
+    model = Comment
+    extra = 2
+
+
+class CommentTabularInline(admin.TabularInline):
+    model = Comment
+    extra = 2
+    can_delete = False
+    max_num = 6
+    exclude = (
+        "is_deleted",
+    )
+
+
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
     fields = (
@@ -53,6 +68,9 @@ class PostAdmin(admin.ModelAdmin):
     )
     actions = (
         "publish_post",
+    )
+    inlines = (
+        CommentTabularInline,
     )
 
     @admin.display(
