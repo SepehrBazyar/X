@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 
 LOCAL_APPS = (
     "core.apps.CoreConfig",
+    "account.apps.AccountConfig",
     "contents.apps.ContentsConfig",
 )
 
@@ -139,3 +140,5 @@ MEDIA_ROOT = BASE_DIR / "media/"
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+AUTH_USER_MODEL = "account.User"

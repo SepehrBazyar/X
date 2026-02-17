@@ -1,6 +1,9 @@
 from django.db import models
+from django.conf import settings
+from django.contrib.auth import get_user_model, authenticate
 # from django.contrib.postgres.fields import ArrayField
 
+# from account.models import User
 from core.models import BaseModel
 from contents.choices import PostStates
 
@@ -31,6 +34,12 @@ class Post(BaseModel):
         max_length=1,
         choices=PostStates.choices,
         default=PostStates.DRAFT,
+    )
+    author = models.ForeignKey(
+        get_user_model(),
+        on_delete=models.SET_NULL,
+        null=True,
+        default=None,
     )
 
     @property
