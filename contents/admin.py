@@ -47,6 +47,7 @@ class PostAdmin(admin.ModelAdmin):
         "state",
         "created_at",
         "tag_names",
+        "author",
     )
     readonly_fields = (
         "created_at",

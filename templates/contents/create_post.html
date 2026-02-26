@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Create New Post{% endblock %}
+{% block content %}
+    {% if request.user.is_authenticated %}
+        <form method="post">
+            {% csrf_token %}
+            {{ form }}
+            <input type="hidden" name="user_id" value={{ request.user.id }}>
+            <input type="submit" value="Send">
+        </form>
+    {% else %}
+        Please Login First.
+    {% endif %}
+{% endblock %}
